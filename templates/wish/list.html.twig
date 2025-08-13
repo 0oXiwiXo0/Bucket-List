@@ -1,12 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h2>All wishes</h2>
+    <h2>Liste des wishes</h2>
 
     <ul>
-        <li>Devenir riche Mother F****r !</li>
-        <li>Le bien-être des personnes</li>
-        <li>Utiliser Ubuntu pour envoyer une fusée dans l'espace</li>
+        {% for id, title in wishes %}
+            <li>
+                <a href="{{ path('detail', { id: id }) }}">{{ title }}</a>
+            </li>
+        {% endfor %}
     </ul>
-
 {% endblock %}
+
+{% block title  %} All Wishes  {% endblock %}

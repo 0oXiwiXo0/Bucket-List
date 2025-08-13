@@ -30,3 +30,27 @@ footer {
 .navbar-brand:last-child {
     margin-right: 0;
 }
+
+
+/* Retirer la sélection de texte (surlignage avec la souris) */
+ul, li {
+    user-select: none; /* Empêche la sélection texte si tu veux */
+}
+
+/* Retirer les styles au focus/hover/click sur les liens dans la liste */
+ul li a {
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+    color: inherit;
+    text-decoration: none; /* enleve le soulignement */
+}
+
+ul li a:hover,
+ul li a:focus,
+ul li a:active {
+    background-color: transparent;
+    color: inherit;
+    outline: none;
+    box-shadow: none;
+}

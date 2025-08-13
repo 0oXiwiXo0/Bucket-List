@@ -1,23 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h2>Détail d'un wish .... </h2>
-
-    <ul>
-        <li>
-            <a href="{{ path('detail', {id:1}) }}">Vendre des photos de pieds</a>
-        </li>
-        <li>
-            <a href="{{ path('detail', {id:2}) }}">Insulter des gens qui le veulent</a>
-        </li>
-        <li>
-            <a href="{{ path('detail', {id:3}) }}">Elon Musk et Space X</a>
-        </li>
-    </ul>
-
-
-
-
-
-
+    <h2>Détail du wish #{{ id }}</h2>
+    <p>{{ detailText }}</p>
+    <p><a href="{{ path('list') }}">⬅ Retour à la liste</a></p>
 {% endblock %}
+
+{% block title  %} Détail du wish #{{ id }} {% endblock %}
