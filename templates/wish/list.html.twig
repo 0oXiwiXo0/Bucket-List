@@ -1,15 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h2>Liste des wishes</h2>
+{% block title %}Bucket-List - All Wishes{% endblock %}
 
-    <ul>
-        {% for id, title in wishes %}
-            <li>
-                <a href="{{ path('detail', { id: id }) }}">{{ title }}</a>
-            </li>
+{% block body %}
+    <h2>List</h2>
+
+    <table>
+        <tr>
+            <th>title</th>
+            <th>description</th>
+            <th>author</th>
+            <th>isPublished</th>
+            <th>dateCreated</th>
+            <th>dateUpdated</th>
+
+        </tr>
+        {% for wish in wishes %}
+            <tr>
+                <td>{{ wish.title }}</td>
+                <td>{{ wish.description }}</td>
+                <td>{{ wish.author }}</td>
+                <td>{{ wish.isPublished }}</td>
+                <td>{{ wish.dateCreated|date('d-m-Y') }}</td>
+                <td>{{ wish.dateUpdated ? serie.lastAirDate|date('d-m-Y') : '' }}</td>
+            </tr>
         {% endfor %}
-    </ul>
+    </table>
 {% endblock %}
 
-{% block title  %} All Wishes  {% endblock %}
