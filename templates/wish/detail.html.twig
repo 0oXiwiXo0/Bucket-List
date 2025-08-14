@@ -1,9 +1,36 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Détail du wish{% endblock %}
+
 {% block body %}
-    <h2>Détail du wish #{{ id }}</h2>
-    <p>{{ detailText }}</p>
+    <h2>Détail du wish</h2>
+
+    <table>
+        <tr>
+            <th>Titre</th>
+            <td>{{ wishes.title }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ wishes.description }}</td>
+        </tr>
+        <tr>
+            <th>Auteur</th>
+            <td>{{ wishes.author }}</td>
+        </tr>
+        <tr>
+            <th>Publié</th>
+            <td>{{ wishes.isPublished ? 'Oui' : 'Non' }}</td>
+        </tr>
+        <tr>
+            <th>Date de création</th>
+            <td>{{ wishes.dateCreated|date('d-m-Y') }}</td>
+        </tr>
+        <tr>
+            <th>Dernière mise à jour</th>
+            <td>{{ wishes.dateUpdated ? wishes.dateUpdated|date('d-m-Y') : '—' }}</td>
+        </tr>
+    </table>
+
     <p><a href="{{ path('list') }}">⬅ Retour à la liste</a></p>
 {% endblock %}
-
-{% block title  %} Détail du wish #{{ id }} {% endblock %}

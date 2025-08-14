@@ -4,27 +4,18 @@
 
 {% block body %}
     <h2>List</h2>
-
-    <table>
-        <tr>
-            <th>title</th>
-            <th>description</th>
-            <th>author</th>
-            <th>isPublished</th>
-            <th>dateCreated</th>
-            <th>dateUpdated</th>
-
-        </tr>
+    <ul>
         {% for wish in wishes %}
-            <tr>
-                <td>{{ wish.title }}</td>
-                <td>{{ wish.description }}</td>
-                <td>{{ wish.author }}</td>
-                <td>{{ wish.isPublished }}</td>
-                <td>{{ wish.dateCreated|date('d-m-Y') }}</td>
-                <td>{{ wish.dateUpdated ? serie.lastAirDate|date('d-m-Y') : '' }}</td>
-            </tr>
+            <li>
+                <a href="{{ path('detail', {'id': wish.id}) }}">
+                    {{ wish.title }}
+                </a>
+                <small>(publié le {{ wish.dateCreated|date('d/m/Y') }})</small>
+            </li>
+        {% else %}
+            <li>Aucune idée trouvée.</li>
         {% endfor %}
-    </table>
+    </ul>
+
 {% endblock %}
 
