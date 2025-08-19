@@ -8,29 +8,47 @@
     <table>
         <tr>
             <th>Titre</th>
-            <td>{{ wishes.title }}</td>
+            <td>{{ wish.title }}</td>
         </tr>
         <tr>
             <th>Description</th>
-            <td>{{ wishes.description }}</td>
+            <td>{{ wish.description }}</td>
         </tr>
         <tr>
             <th>Auteur</th>
-            <td>{{ wishes.author }}</td>
+            <td>{{ wish.author }}</td>
         </tr>
         <tr>
             <th>Publié</th>
-            <td>{{ wishes.isPublished ? 'Oui' : 'Non' }}</td>
+            <td>{{ wish.isPublished ? 'Oui' : 'Non' }}</td>
         </tr>
         <tr>
             <th>Date de création</th>
-            <td>{{ wishes.dateCreated|date('d-m-Y') }}</td>
+            <td>{{ wish.dateCreated|date('d-m-Y') }}</td>
         </tr>
         <tr>
             <th>Dernière mise à jour</th>
-            <td>{{ wishes.dateUpdated ? wishes.dateUpdated|date('d-m-Y') : '—' }}</td>
+            <td>{{ wish.dateUpdated ? wish.dateUpdated|date('d-m-Y') : '—' }}</td>
         </tr>
     </table>
+    <div class="card-body">
+        <div class="text-center">
+            <a href="{{ path('wish_delete', {'id': wish.id, 'token':
+                csrf_token('delete'~wish.id)}) }}"
+               class="btn btn-danger mt-2"
+               title="Delete the wish">
+                Delete
+            </a>
+            <a href="{{ path('wish_update', {'id': wish.id}) }}"
+               class="btn btn-secondary mt-2"
+               title="Modify the wish">
+                Modify
+            </a>
+        </div>
+    </div>
 
-    <p><a href="{{ path('list') }}">⬅ Retour à la liste</a></p>
+
+
+
+    <p><a href="{{ path('wish_list') }}">⬅ Retour à la liste</a></p>
 {% endblock %}

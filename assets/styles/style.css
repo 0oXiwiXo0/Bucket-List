@@ -1,3 +1,10 @@
+.responsive-img {
+    width: 100%;
+    height: auto;
+    display: block; /* optionnel pour supprimer l'espace blanc sous l'image */
+}
+
+
 body {
     min-height: 100vh;
 }
