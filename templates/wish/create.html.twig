@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ parent() }} - Formulaire{% endblock %}
+
+{% block body %}
+    <h1>{{ wish.id ? 'Éditer un vœu' : 'Créer un vœu' }}</h1>
+
+    {# Formulaire Symfony #}
+    {{ form_start(wish_form) }}
+    {{ form_widget(wish_form) }}
+    <button class="btn btn-primary">Enregistrer</button>
+    {{ form_end(wish_form) }}
+
+    {# Si tu veux afficher certaines valeurs de l'entité #}
+    {% if wish %}
+        <p><strong>Date de création :</strong> {{ wish.dateCreated ? wish.dateCreated|date('d/m/Y') : 'Non définie' }}</p>
+        <p><strong>Date de mise à jour :</strong> {{ wish.dateUpdated ? wish.dateUpdated|date('d/m/Y') : 'Non définie' }}</p>
+    {% endif %}
+{% endblock %}

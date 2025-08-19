@@ -41,5 +41,12 @@
             </div>
         </footer>
 
-    </body>
+    {% for type, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+</body>
 </html>
