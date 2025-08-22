@@ -7,8 +7,9 @@
     <ul>
         {% for wish in wishes %}
             <li>
-                <a href="{{ path('wish_detail', {'id': wish.id}) }}">
-                    {{ wish.title }}
+                <a href="{{ path('wish_detail', {id: wish.id}) }}"
+                   title="View this wish in details">
+                    {{ wish.title }} [{{ wish.category.name }}]
                 </a>
                 <small>(publié le {{ wish.dateCreated|date('d/m/Y') }})</small>
             </li>

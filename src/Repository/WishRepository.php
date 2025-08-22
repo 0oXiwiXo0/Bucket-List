@@ -40,4 +40,19 @@ class WishRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+        public function findPublishedWishesWithCategories(): ?array
+        {
+            $queryBuilder = $this->createQueryBuilder('w');
+    // On ajoute la jointure avec catégorie, pour éviter les multiples requêtes.
+    // On n'oublie pas de sélectionner les données !
+            $queryBuilder->join('w.category', 'c')
+                ->addSelect('c');
+            $queryBuilder->andWhere('w.isPublished = 1');
+            $queryBuilder->orderBy('w.dateCreated', 'DESC');
+            $query = $queryBuilder->getQuery();
+            return $query->getResult();
+        }
+
+
+
 }
