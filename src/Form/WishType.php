@@ -16,18 +16,18 @@ class WishType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
-                'label' => 'Your idea'
+                'label' => 'Titre du voeu'
             ])
             ->add('description', TextareaType::class, [
-                'label' => 'Please describe it!',
+                'label' => 'Description du voeu ',
                 'required' => false
             ])
             ->add('author', TextType::class, [
-                'label' => 'Your username'
+                'label' => 'Auteur'
             ])
             ->add('isPublished', CheckboxType::class, [
                 'required' => false,
-                'label' => 'Published'
+                'label' => 'Voeu visible par tous'
             ])
         ;
     }

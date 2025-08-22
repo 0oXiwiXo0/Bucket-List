@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     {% if wishForm.vars.value.id == null %}
-        <h2>Add your wishes!</h2>
+        <h2>Ajouter un voeu </h2>
     {% else %}
-        <h2>Update your wishes!</h2>
+        <h2>Ajout d'un voeu </h2>
     {% endif %}
     {{ form_start(wishForm) }}
     {{ form_row(wishForm.title) }}
@@ -11,7 +11,7 @@
     {{ form_row(wishForm.author) }}
     {{ form_row(wishForm.isPublished) }}
     <button class="btn btn-sm btn-primary">{{ wishForm.vars.value.id == null ?
-        'Create' : 'Modify' }}</button>
+        'Création' : 'Modify' }}</button>
     {{ form_end(wishForm) }}
 {% endblock %}
-{% block title %}Add your wishes | {{ parent() }}{% endblock %}
+{% block title %}Ajout d'un voeu | {{ parent() }}{% endblock %}
